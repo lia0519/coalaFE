@@ -9,15 +9,22 @@ const PromoBanner = ({ items }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % items.length);
-    }, 5000); // 5초마다 전환
+    }, 3000); // 5초마다 전환
     return () => clearInterval(interval);
   }, [items.length]);
 
   return (
     <div className="promo-banner">
-      <a href={items[current].link} className="banner-slide">
-        {items[current].text}
-      </a>
+      <div
+        className="banner-track"
+        style={{ transform: `translateX(-${current * 100}%)` }}>
+
+        {items.map((item, index) => (
+          <a key={index} href={item.link} className='banner-slide'>
+            {item.text}
+          </a>
+        ))}    
+      </div>
     </div>
   );
 };

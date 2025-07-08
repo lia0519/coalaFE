@@ -8,8 +8,8 @@ const Detail = () => {
         <tbody>
           <tr>
             <td className="id-cell">404</td>
-            <td>[Notice] June Meeting</td>
-            <td>aaaa</td>
+            <td>[Notice]|| June Meeting</td>
+            <td>aa</td>
             <td>2025.04.04</td>
           </tr>
         </tbody>

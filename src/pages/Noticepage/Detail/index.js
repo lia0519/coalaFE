@@ -9,7 +9,7 @@ const Detail = () => {
           <tr>
             <td className="id-cell">404</td>
             <td>[Notice] June Meeting</td>
-            <td>aaaa</td>
+            <td>aaa</td>
             <td>2025.04.04</td>
           </tr>
         </tbody>

@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Abel';
+  src: url('../../../fonts/Abel-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .board-wrapper {
   padding: 0px 30px 30px 30px;
   font-family: 'Arial', sans-serif;
@@ -13,15 +20,15 @@
 .board-title {
   font-size: 24px;
   font-weight: bold;
-  color: #222;
+  color: black;
   margin-bottom: 10px;
   margin-top: 0px;
 }
 
 .board-search input {
-  padding: 6px;
+  padding: 5.1px;
   width: 200px;
-  border: 1px solid #aaa;
+  border: 1px solid #8c9c75;
 }
 
 .board-search button {
@@ -36,13 +43,15 @@
 .board-total {
   margin: 5px 0 0 2px;
   font-size: 14px;
-  color: #333;
+  color: black;
   margin-bottom: 20px;
+  font-family: 'Abel', sans-serif;
 }
 
 .board-table {
   width: 100%;
   border-collapse: collapse;
+  font-family: 'Abel', sans-serif;
 }
 
 .board-table th,
@@ -53,7 +62,7 @@
 }
 
 .board-table th {
-  background-color: #e0eec7;
+  background-color: #e1ead0;
 }
 
 .board-left {
@@ -65,21 +74,53 @@
 .board-link {
   color: black;
   text-decoration: none;
+  font-family: 'Abel', sans-serif;
 }
 
 .board-link:hover {
   text-decoration: underline;
 }
 
-.pagination {
+.board-footer {
+  position: relative;
+  width: 100%;
+  height: 40px;
   margin-top: 20px;
-  text-align: center;
 }
 
-.pagination button {
-  margin: 0 4px;
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  background: white;
-  cursor: pointer;
+.pagination-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: felx;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  gap: 8px;
+}
+
+.write-button-wrapper {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.write-button {
+  padding: 8px 16px;
+  background-color: #8c9c75;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.write-button:hover {
+  background-color: #6e8058;
 }
