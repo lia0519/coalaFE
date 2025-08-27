@@ -1,0 +1,167 @@
+/* ===== Theme Tokens ===== */
+:root{
+  --bg: #f6f7f9;
+  --ink: #0f172a;
+  --muted:#64748b;
+
+  --board: #223241;      /* 남색 보드 배경 (넓은 밴드) */
+  --line: #e5e7eb;
+  --accent: #22c55e;     /* 포인트 그린 */
+  --accent-600: #16a34a;
+
+  --ball: #e74c3c;
+  --paddle: #2ea3ff;
+  --rank-alpha: .30;
+}
+
+*{ box-sizing: border-box; }
+html, body, #root{ height:100%; }
+body{ margin:0; background:var(--bg); color:var(--ink); }
+
+/* ===== Page & Band ===== */
+.page{
+  width:100%;
+  min-height:70vh;
+  padding: clamp(24px, 3vw, 48px) 0;
+}
+
+/* 남색 배경을 더 넓게: 내부에 2칼럼을 담음 */
+.game-band{
+  width: min(96vw, 1200px);
+  margin: 0 auto;
+  background: var(--board);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 16px;
+  padding: clamp(16px, 2.2vw, 28px);
+  box-shadow:
+    0 10px 0 rgba(134,239,172,.40),
+    0 26px 80px rgba(34,197,94,.28),
+    inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+/* 헤더 */
+.game-head{ margin-bottom: 12px; }
+.game-badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  color:#065f46;
+  background: linear-gradient(180deg, #d1fae5, #bcf0da);
+  border:1px solid #a7f3d0;
+  margin-bottom:8px;
+}
+.game-title{
+  margin:4px 0 2px;
+  font-weight:800;
+  color:#ecfdf5;
+  font-size: clamp(18px, 2.2vw, 24px);
+}
+.game-sub{
+  color:#c7f9e5;
+  font-size:13px;
+  opacity:.9;
+}
+
+/* ===== 2-Column Layout ===== */
+.game-layout{
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr); /* 왼쪽 넓게, 오른쪽 랭크 */
+  gap: clamp(12px, 2vw, 20px);
+  align-items: start; /* 두 칼럼의 기준은 위쪽 */
+  --rank-offset: 280px;
+}
+
+/* 왼쪽: 게임 칼럼 */
+.game-col.game-left{ min-width: 0; } /* overflow 방지 */
+
+/* 게임 SVG 컨테이너 */
+.scene-container{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* 실제 게임(svg) — 가운데 + 테두리 */
+.scene{
+  display:block;
+  margin:0 auto;
+  width:100%;
+  height:100%;
+  border:1.5px solid rgba(255,255,255,.35);
+  border-radius:12px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.35);
+  background: transparent;          /* 보드는 바깥 밴드가 담당 */
+}
+
+/* SVG 내부 요소 톤 */
+.block{ stroke-width:1px; stroke: rgba(255,255,255,.35); }
+.paddle{ fill: var(--paddle); }
+.ball{ fill: var(--ball); }
+.level{ fill: #eaf2ef; font-weight:700; letter-spacing:.3px; }
+.life { fill: var(--accent); }
+
+/* ===== Rank Panel (오른쪽) ===== */
+.game-col.game-right{
+    min-width: 0;
+    margin-top: var(--rank-offset);
+}
+
+.rank-panel{
+   background: rgba(0,0,0,var(--rank-alpha)); /* 반투명 다크 */
+  color: #fff;                                /* 본문 글자 흰색 */
+  border-color: #fff;                /* ← 흰색 테두리 */
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  backdrop-filter: saturate(140%) blur(2px);  /* 지원 브라우저에서 유리 느낌 */
+}
+
+/* 헤더 */
+.rank-head h3{ color:#fff; }
+
+/* (안 쓰는) 초기화 버튼 완전 제거 */
+.rank-clear{ display:none !important; }
+
+.rank-empty{
+  color:var(--muted);
+  font-size: 13px;
+  padding: 8px 2px 12px;
+}
+
+.rank-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:6px;
+}
+/* 리스트 아이템도 다크 톤에 맞춤 */
+.rank-item{
+  background: rgba(255,255,255,.06);          /* 살짝 밝은 면(기존 카드 느낌) */
+  border-color: rgba(255,255,255,.20); 
+}
+
+.rank-no.is-gold{
+  /* 골드 뱃지는 다크 배경에서 더 또렷하게 */
+  background: linear-gradient(180deg, rgba(253,230,138,.95), rgba(251,191,36,.9));
+  color:#1f2937;
+}
+.rank-name{ color:#fff; font-weight:600; }
+.rank-score{ color:#fff; font-weight:800; }
+.rank-no{ color:#fff; } 
+.rank-time, .rank-hint{ display:none !important; }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px){
+  .game-layout{
+    grid-template-columns: 1fr;   /* 세로 스택 */
+  }
+  .rank-panel{ margin-top: 8px; }
+  .game-col.game-right{
+    margin-top: 10px;
+  }
+}

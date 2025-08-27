@@ -1,0 +1,80 @@
+/* 페이지 전체 컨테이너 */
+.write-container {
+  max-width: 700px;
+  margin: -10px auto 40px auto;  /* ✅ 위쪽 여백 줄임 */
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 상단 제목 */
+.write-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #798568;
+  margin-bottom: 25px;
+}
+
+/* 폼 레이아웃 */
+.write-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 라벨 텍스트 */
+.write-form label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: black;
+  
+}
+
+/* input, textarea 공통 스타일 */
+.write-form input,
+.write-form textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: 'Gowun Batang', 'Noto Sans KR', serif;
+}
+
+.write-form input:focus,
+.write-form textarea:focus {
+  border-color: #8c9c75;
+}
+
+/* 제출 버튼 */
+.write-form button {
+  padding: 12px;
+  font-size: 1.1rem;
+  background-color: #8c9c75;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.write-form button:hover {
+  background-color: #798568;
+}
+
+.meta-block {
+  margin-bottom: 30px;
+}
+
+.meta-text {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: black;
+  line-height: 1;
+  margin-bottom: 15px;
+  font-family: 'Gowun Batang', 'Noto Sans KR', serif;
+}

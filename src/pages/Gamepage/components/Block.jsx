@@ -1,0 +1,9 @@
+import React from 'react';
+import { getRange } from '../logic/utils';
+import { BLOCK_MAX_DENSITY } from '../logic/levels';
+
+const colors = getRange(BLOCK_MAX_DENSITY).map(i => `rgba(26, 188, 156, ${1 / (BLOCK_MAX_DENSITY - i)})`);
+
+export default function Block({ x, y, width, height, density }) {
+  return <rect className="block" fill={colors[density]} x={x} y={y} width={width} height={height} />;
+}
